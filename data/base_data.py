@@ -20,10 +20,11 @@ def make_data_connection():
 
     global _engine  # pylint: disable=W0603
 
-    db_url = 'mysql+mysqldb://{0}:{1}@{2}/{3}'.format(DataBase.USER,
-                                              DataBase.PASSWORD,
-                                              DataBase.HOST,
-                                              DataBase.DB_NAME)
+    db_url = 'postgres://{0}:{1}@{2}:{3}/{4}'.format(DataBase.USER,
+                                                     DataBase.PASSWORD,
+                                                     DataBase.HOST,
+                                                     DataBase.PORT,
+                                                     DataBase.DB_NAME)
     _engine = create_engine(db_url, echo=DataBase.ECHO)
 
 

@@ -5,8 +5,9 @@ __author__ = 'Ashkan'
 
 
 class DataBase:
-    USER = 'rivalry-ws'
-    PASSWORD = 'ramz'
-    HOST = 'localhost'
-    DB_NAME = 'rivalry'
+    USER = 'obprbkcjeyybcj'
+    PASSWORD = 'DrClQC17sQpINezlFcIkcmQk7A'
+    HOST = 'ec2-54-225-136-187.compute-1.amazonaws.com'
+    PORT = 5432
+    DB_NAME = 'dbdh1kea0h6ioc'
     ECHO = True

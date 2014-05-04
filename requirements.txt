@@ -4,7 +4,6 @@ MarkupSafe==0.21
 PyRSS2Gen==1.0.0
 PyYAML==3.10
 SQLAlchemy==0.9.4
-mysql-python==1.2.5
 Twisted==12.2.0
 Werkzeug==0.9.4
 altgraph==0.10.1
