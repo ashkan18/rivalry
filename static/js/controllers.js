@@ -4,7 +4,7 @@
  */
 var catalogController = angular.module('catalogController', []);
 
-var WEBSERVICES_URL = 'http://127.0.0.1:9999';
+var WEBSERVICES_URL = 'http://rivalry-studio.herokuapp.com/';
 var WEBSERVICES_ENDPOINT = {
     catalog: "/catalog/",
     item_detail: "/catalog/"
