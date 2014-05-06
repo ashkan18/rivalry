@@ -2,7 +2,6 @@
 This module has all service layer related functions for handling Catalog related functionality
 """
 from data.catalog_data import CatalogData
-from rivalry import app
 
 __catalog_data = CatalogData()
 
@@ -14,7 +13,6 @@ def get_current_catalog():
     """
     # first get the issue number of the latest catalog
     latest_issue_number_row = __catalog_data.get_latest_catalog_issue_number()
-    app.logger.debug("------------>{0}".format(latest_issue_number_row['issue_number']))
     # get the details of the latest issue
     current_catalog = __catalog_data.get_catalog_by_issue_number(latest_issue_number_row['issue_number'])
 
