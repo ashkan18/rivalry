@@ -42,7 +42,7 @@ class BaseData():
         data = _engine.execute(sql, **kwargs)
 
         if data is not None and data.rowcount > 0:
-            return data.fetchone()
+            return self.row2dict(data.fetchone())
         else:
             return None
 
@@ -54,3 +54,10 @@ class BaseData():
             return fetched_result
         else:
             return None
+
+    def row2dict(self, row):
+        d = {}
+        for column in row.__table__.columns:
+            d[column.name] = str(getattr(row, column.name))
+
+        return d

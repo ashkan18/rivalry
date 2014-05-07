@@ -20,7 +20,7 @@ class CatalogData(BaseData):
         @param issue_number: number of the requested issue
         @return: CatalogModel fully populated
         """
-        sql = text("""SELECT id, issue_number, issue_tag_line, theme_id, created_date
+        sql = text("""SELECT id, issue_number, issue_tag_line, theme_id
                       FROM catalog
                       WHERE issue_number = 1""")
         return self.select_one(sql=sql)
