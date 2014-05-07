@@ -42,7 +42,7 @@ class BaseData():
         data = _engine.execute(sql, **kwargs)
 
         if data is not None and data.rowcount > 0:
-            return self.row2dict(data.fetchone())
+            return data.fetchone()
         else:
             return None
 
