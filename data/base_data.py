@@ -43,10 +43,7 @@ class BaseData():
 
         if data is not None and data.rowcount > 0:
             row = data.fetchone()
-            print '--=-=-111=> {0}'.format(row)
-            print '--=-=-222=> {0}'.format(dict(row))
-            print '--=-=-333+> {0}'.format(self.row2dict())
-            return self.row2dict(row)
+            return dict(row)
         else:
             return None
 
