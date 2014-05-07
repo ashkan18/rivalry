@@ -15,8 +15,7 @@ def get_current_catalog():
         curl -X GET http://localhost:999/catalog/
     """
     current_catalog = catalog_service.get_current_catalog()
-    return u'hello {0}'.format(current_catalog['issue_number'])
-    # return jsonify(catalog=current_catalog)
+    return jsonify(catalog=current_catalog)
 
 @app.route('/catalog/items/<int:catalog_id>', methods=['GET'])
 def get_catalog_items(catalog_id):
