@@ -20,16 +20,14 @@
 
         <div class="reveal">
             <!-- Wrap all slides in a single "slides" class -->
-            <div class="slides">
+            <div class="slides" ng-controller="appCatalogController">
 
-                <!-- ALL SLIDES GO HERE -->
-                <!-- Each section element contains an individual slide -->
-                <section>
+                <section ng-controller="CatalogController">
                     <h1>About My Product</h1>
                     <p>My product discussed here</p>
                 </section>
 
-                <section id="show-a-link">
+                <section id="show-a-link" ng-controller="ItemDetailController">
                     <h1>Show a live link</h1>
                     <p>Slide 2 discussed here</p>
                     <p>See <a href="http://www.htmlcheats.com">HTMLCheats.com</a><p>
