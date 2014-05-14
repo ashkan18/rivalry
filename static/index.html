@@ -9,7 +9,7 @@
 
 <!-- Header -->
 <nav>
-    <a ng-click="go('/page1', 'slideLeft')">Page 1</a>
+    <a ng-click="go('/catalog', 'slideLeft')">Page 1</a>
     <a ng-click="go('/page2', 'slideRight')">Page 2</a>
     <a ng-click="go('/page3', 'slideDown')">Page 3</a>
     <a ng-click="go('/page4')">Page 4</a> <!-- note: no transition specified -->
@@ -21,8 +21,8 @@
 </div>
 
 <!-- Example page partials -->
-<script type="text/ng-template" id="page1.html">
-    <div id="page1" class="pages">
+<script type="text/ng-template" id="catalog.html">
+    <div id="catalog" class="pages">
         <h1>Page 1</h1>
         <p>Here's a simple, scalable approach for page transitions in a single page app using the new(ish) class-based animation support for ng-view: a rootScope 'go' method.</p>
                 <pre>
@@ -71,8 +71,8 @@
     <div id="page4" class="pages">
         <h1>Page 4</h1>
         <p>The transition class is optional since we set a default in our go method.</p>
-        <p><a ng-click="go('/page1')">Use the default transition (crossFade) to go to page 1</a></p>
-        <code>&lt;a ng-click="go('/page1')"&gt;Use the default...&lt;/a&gt;</code>
+        <p><a ng-click="go('/catalog')">Use the default transition (crossFade) to go to page 1</a></p>
+        <code>&lt;a ng-click="go('/catalog')"&gt;Use the default...&lt;/a&gt;</code>
     </div>
 </script>
 
