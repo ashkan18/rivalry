@@ -54,6 +54,6 @@ rivalryApp.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'page4.html'
         })
         .otherwise({
-            templateUrl: 'page1.html'
+            redirectTo: '/catalog'
         });
 }]);
