@@ -31,7 +31,7 @@ class CatalogData(BaseData):
         @param catalog_id: int number of catalog id
         @param side: int coming from CatalogSide setting which side of catalog we want to get
         """
-        sql = text("""SELECT i.name, a.firs_tname, a.last_name
+        sql = text("""SELECT i.name, a.first_name, a.last_name
                       FROM catalog_item AS ci
                       JOIN item AS i on (i.id = ci.item_id)
                       JOIN item_artist AS ia on (ia.item_id = i.id)
