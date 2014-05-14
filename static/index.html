@@ -22,8 +22,16 @@
 </div>
 
 <!-- Example page partials -->
-<script type="text/ng-template" id="mozh.html">
-    <div id="mozh" class="pages">
+<script type="text/ng-template" id="page1.html">
+    <div id="page1" class="pages">
+        <h1>Page 2</h1>
+        <p>Use the method from any page in an ng-click or other event handler.</p>
+        <p><a ng-click="go('/about', 'slideUp')">Slide up Page 3</a></p>
+        <code>&lt;a ng-click="go('/page3', 'slideUp')"&gt;Slide up Page 3&lt;/a&gt;</code>
+    </div>
+</script>
+<script type="text/ng-template" id="page2.html">
+    <div id="page2" class="pages">
         <h1>Page 2</h1>
         <p>Use the method from any page in an ng-click or other event handler.</p>
         <p><a ng-click="go('/about', 'slideUp')">Slide up Page 3</a></p>
@@ -43,9 +51,6 @@
 <script type="text/ng-template" id="page4.html">
     <div id="page4" class="pages">
         <h1>Page 4</h1>
-        <p>The transition class is optional since we set a default in our go method.</p>
-        <p><a ng-click="go('/catalog')">Use the default transition (crossFade) to go to page 1</a></p>
-        <code>&lt;a ng-click="go('/catalog')"&gt;Use the default...&lt;/a&gt;</code>
     </div>
 </script>
 
