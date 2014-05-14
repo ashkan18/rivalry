@@ -1,0 +1,23 @@
+.animate-enter,
+.animate-leave
+{
+    -webkit-transition: 850ms cubic-bezier(0.680, -0.550, 0.265, 1.550) all;
+    -moz-transition: 850ms cubic-bezier(0.680, -0.550, 0.265, 1.550) all;
+    -ms-transition: 850ms cubic-bezier(0.680, -0.550, 0.265, 1.550) all;
+    -o-transition: 850ms cubic-bezier(0.680, -0.550, 0.265, 1.550) all;
+    transition: 850ms cubic-bezier(0.680, -0.550, 0.265, 1.550) all;
+}
+
+.animate-enter {
+    left: 100%;
+}
+.animate-enter.animate-enter-active {
+    left: 0;
+}
+
+.animate-leave {
+    left: 0;
+}
+.animate-leave.animate-leave-active{
+    left: -100%;
+}

@@ -2,7 +2,12 @@
  * This file holds the main application routing for Rivalry angular application
  */
 
-var rivalryApp = angular.module('rivalryApp', ['ngRoute', 'catalogController']);
+var rivalryApp = angular.module('rivalryApp', [
+    'ngRoute',
+    'ngAnimate',
+    'catalogController'
+]);
+
 
 rivalryApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
@@ -16,4 +21,18 @@ rivalryApp.config(['$routeProvider', function($routeProvider) {
         }).otherwise({ // if we don't know the route go to current catalog page
             redirectTo: '/catalog'
         })
-}]);
+
+    }]);
+
+
+rivalryApp.controller("ViewCtrl", function($scope) {
+    $scope.$on("$routeChangeSuccess", function(event, current, previous) {
+        var previousCtrl = previous && previous.$$route && previous.$$route.controller;
+        if (previousCtrl === "ItemDetailController") {
+            $scope.animationStyle = "slideLeft";
+        } else if (previousCtrl === "CatalogController") {
+            $scope.animationStyle = "slideRight";
+        }
+        $scope.$apply();
+    });
+});
