@@ -1,62 +1,58 @@
-/**
- * This file holds the main application routing for Rivalry angular application
- */
-
-/*var rivalryApp = angular.module('rivalryApp', [
+// Declare the main module
+var myApp = angular.module('myApp', [
     'ngRoute',
-    'ngAnimate']);
-
-
-rivalryApp.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.
-        when('/catalog', { // route to get the current month's catalog
-            templateUrl: 'partials/current-catalog.html',
-            controller: 'CatalogController'
-        }).
-        when('/item/:itemId', { // route to get an item's detail
-            templateUrl: 'partials/item-detail.html',
-            controller: 'ItemDetailController'
-        }).otherwise({ // if we don't know the route go to current catalog page
-            redirectTo: '/catalog'
-        })
-
-    }]);
-
-*/
-var app = angular.module("app", [
-    "ngRoute",
-    "ngAnimate"
+    'ngAnimate'
 ]);
 
-app.config(function($routeProvider) {
-    $routeProvider.
-        when("/catalog", {
-            templateUrl: "partials/current-catalog.html",
-            controller: "Page1Ctrl"
-        }).
-        when("/item/:itemId", {
-            templateUrl: "partials/item-detail.html",
-            controller: "Page2Ctrl"
-        }).
-        otherwise({
-            redirectTo: "/page1"
-        });
-});
+// Initialize the main module
+myApp.run(['$rootScope', '$location', '$window', function ($rootScope, $location, $window) {
 
-app.controller("ViewCtrl", function($scope) {
-    $scope.$on("$routeChangeSuccess", function(event, current, previous) {
-        var previousCtrl = previous && previous.$$route && previous.$$route.controller;
-        if (previousCtrl === "Page1Ctrl") {
-            $scope.animationStyle = "slideLeft";
-        } else if (previousCtrl === "Page2Ctrl") {
-            $scope.animationStyle = "slideRight";
+    'use strict';
+
+    /**
+     * Helper method for main page transitions. Useful for specifying a new page partial and an arbitrary transition.
+     * @param  {String} path               The root-relative url for the new route
+     * @param  {String} pageAnimationClass A classname defining the desired page transition
+     */
+    $rootScope.go = function (path, pageAnimationClass) {
+
+        if (typeof(pageAnimationClass) === 'undefined') { // Use a default, your choice
+            $rootScope.pageAnimationClass = 'crossFade';
         }
-        $scope.$apply();
-    });
-});
 
-app.controller("Page1Ctrl", function($scope) {
-});
+        else { // Use the specified animation
+            $rootScope.pageAnimationClass = pageAnimationClass;
+        }
 
-app.controller("Page2Ctrl", function($scope) {
-});
+        if (path === 'back') { // Allow a 'back' keyword to go to previous page
+            $window.history.back();
+        }
+
+        else { // Go to the specified path
+            $location.path(path);
+        }
+    };
+}]);
+
+// Configure the main module
+myApp.config(['$routeProvider', function ($routeProvider) {
+
+    'use strict';
+
+    $routeProvider
+        .when('/page1', {
+            templateUrl: 'page1.html'
+        })
+        .when('/page2', {
+            templateUrl: 'page2.html'
+        })
+        .when('/page3', {
+            templateUrl: 'page3.html'
+        })
+        .when('/page4', {
+            templateUrl: 'page4.html'
+        })
+        .otherwise({
+            templateUrl: 'page1.html'
+        });
+}]);
