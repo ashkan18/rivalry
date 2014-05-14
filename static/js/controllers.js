@@ -19,7 +19,7 @@ rivalryApp.controller("ViewCtrl", function($scope) {
         } else if (previousCtrl === "CatalogController") {
             $scope.animationStyle = "slideRight";
         }
-        //$scope.$apply();
+        $scope.$apply();
     });
 });
 
