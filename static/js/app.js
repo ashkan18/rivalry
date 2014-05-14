@@ -45,7 +45,7 @@ rivalryApp.config(['$routeProvider', function ($routeProvider) {
             controller: 'CatalogController'
         })
         .when('/ash', {
-            templateUrl: 'page2.html'
+            templateUrl: 'partials/mozh.html'
         })
         .when('/about', {
             templateUrl: 'page3.html'
