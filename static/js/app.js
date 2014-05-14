@@ -41,7 +41,7 @@ myApp.config(['$routeProvider', function ($routeProvider) {
 
     $routeProvider
         .when('/page1', {
-            templateUrl: 'page1.html'
+            templateUrl: 'catalog.html'
         })
         .when('/page2', {
             templateUrl: 'page2.html'
