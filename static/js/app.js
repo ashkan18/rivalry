@@ -1,59 +1,46 @@
-// Declare the main module
-var rivalryApp = angular.module('rivalryApp', [
-    'ngRoute',
-    'ngAnimate'
+var app = angular.module("app", [
+    "ngRoute",
+    "ngAnimate"
 ]);
 
-// Initialize the main module
-rivalryApp.run(['$rootScope', '$location', '$window', function ($rootScope, $location, $window) {
-
-    'use strict';
-
-    /**
-     * Helper method for main page transitions. Useful for specifying a new page partial and an arbitrary transition.
-     * @param  {String} path               The root-relative url for the new route
-     * @param  {String} pageAnimationClass A classname defining the desired page transition
-     */
-    $rootScope.go = function (path, pageAnimationClass) {
-
-        if (typeof(pageAnimationClass) === 'undefined') { // Use a default, your choice
-            $rootScope.pageAnimationClass = 'crossFade';
-        }
-
-        else { // Use the specified animation
-            $rootScope.pageAnimationClass = pageAnimationClass;
-        }
-
-        if (path === 'back') { // Allow a 'back' keyword to go to previous page
-            $window.history.back();
-        }
-
-        else { // Go to the specified path
-            $location.path(path);
-        }
-    };
-}]);
-
-// Configure the main module
-rivalryApp.config(['$routeProvider', function ($routeProvider) {
-
-    'use strict';
-
-    $routeProvider
-        .when('/catalog', {
-            templateUrl: 'page1.html'
-            //controller: 'CatalogController'
-        })
-        .when('/ash', {
-            templateUrl: 'page2.html'
-        })
-        .when('/about', {
-            templateUrl: 'page3.html'
-        })
-        .when('/mozh', {
-            templateUrl: 'page4.html'
-        })
-        .otherwise({
-            redirectTo: '/catalog'
+app.config(function($routeProvider) {
+    $routeProvider.
+        when("/page1", {
+            templateUrl: "page1.html",
+            controller: "Page1Ctrl",
+            animate: "slideLeft"
+        }).
+        when("/page2", {
+            templateUrl: "page2.html",
+            controller: "Page2Ctrl",
+            animate: "slideRight"
+        }).
+        otherwise({
+            redirectTo: "/page1"
         });
-}]);
+});
+
+app.controller("ViewCtrl", function($scope) {
+
+});
+
+app.directive('animClass',function($route){
+    return {
+        link: function(scope, elm, attrs){
+            var enterClass = $route.current.animate;
+            elm.addClass(enterClass)
+            scope.$on('$destroy',function(){
+                elm.removeClass(enterClass)
+                elm.addClass($route.current.animate)
+            })
+        }
+    }
+});
+
+app.controller("Page1Ctrl", function($scope) {
+
+});
+
+app.controller("Page2Ctrl", function($scope) {
+
+});
