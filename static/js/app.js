@@ -21,6 +21,7 @@ rivalryApp.run(['$rootScope', '$location', '$window', function ($rootScope, $loc
         }
 
         else { // Use the specified animation
+            alert("hello" + pageAnimationClass);
             $rootScope.pageAnimationClass = pageAnimationClass;
         }
 
@@ -45,7 +46,7 @@ rivalryApp.config(['$routeProvider', function ($routeProvider) {
             controller: 'CatalogController'
         })
         .when('/ash', {
-            templateUrl: 'partials/mozh.html'
+            templateUrl: 'mozh.html'
         })
         .when('/about', {
             templateUrl: 'page3.html'
