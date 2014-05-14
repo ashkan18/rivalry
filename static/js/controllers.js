@@ -10,31 +10,17 @@ var WEBSERVICES_ENDPOINT = {
     item_detail: "/catalog/"
 }
 
-
-rivalryApp.controller("ViewCtrl", function($scope) {
-    $scope.$on("$routeChangeSuccess", function(event, current, previous) {
-        var previousCtrl = previous && previous.$$route && previous.$$route.controller;
-        if (previousCtrl === "ItemDetailController") {
-            $scope.animationStyle = "slideLeft";
-        } else if (previousCtrl === "CatalogController") {
-            $scope.animationStyle = "slideRight";
-        }
-        $scope.$apply();
-    });
-});
-
-
 // define Catalog Controller which returns items in current catalog, and more detail about this month
 rivalryApp.controller('CatalogController', ['$scope', '$http',
     function($scope, $http) {
 
-        $http({method: 'GET', url: WEBSERVICES_URL + WEBSERVICES_ENDPOINT.catalog})
+        /*$http({method: 'GET', url: WEBSERVICES_URL + WEBSERVICES_ENDPOINT.catalog})
             .success(function(data, satus, headers, config){
                 $scope.catalog_items = data
             }).error(function(data, status, headers, config) {
                     console.log("There was an error in getting current catalog");
             });
-
+         */
 }]);
 
 

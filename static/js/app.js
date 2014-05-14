@@ -41,7 +41,8 @@ myApp.config(['$routeProvider', function ($routeProvider) {
 
     $routeProvider
         .when('/catalog', {
-            templateUrl: 'partials/catalog.html'
+            templateUrl: 'partials/catalog.html',
+            controller: 'CatalogController'
         })
         .when('/page2', {
             templateUrl: 'page2.html'
