@@ -41,7 +41,7 @@ myApp.config(['$routeProvider', function ($routeProvider) {
 
     $routeProvider
         .when('/catalog', {
-            templateUrl: 'catalog.html'
+            templateUrl: 'partials/catalog.html'
         })
         .when('/page2', {
             templateUrl: 'page2.html'
@@ -53,6 +53,6 @@ myApp.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'page4.html'
         })
         .otherwise({
-            templateUrl: 'catalog.html'
+            templateUrl: 'partials/catalog.html'
         });
 }]);

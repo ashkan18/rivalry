@@ -22,31 +22,7 @@
 
 <!-- Example page partials -->
 <script type="text/ng-template" id="catalog.html">
-    <div id="catalog" class="pages">
-        <h1>Page 1</h1>
-        <p>Here's a simple, scalable approach for page transitions in a single page app using the new(ish) class-based animation support for ng-view: a rootScope 'go' method.</p>
-                <pre>
-    $rootScope.go = function (path, pageAnimationClass) {
 
-        if (typeof(pageAnimationClass) === 'undefined') { // Use a default, your choice
-            $rootScope.pageAnimationClass = 'crossFade';
-        }
-        
-        else { // Use the specified animation
-            $rootScope.pageAnimationClass = pageAnimationClass;
-        }
-
-        if (path === 'back') { // Allow a 'back' keyword to go to previous page
-            $window.history.back();
-        }
-        
-        else { // Go to the specified path
-            $location.path(path);
-        }
-    };
-                </pre>
-        <p>We add the 'pageAnimationClass' class to the view container with ng-class and set up any number of arbitrary page transitions in our css file.</p>
-    </div>
 </script>
 
 <script type="text/ng-template" id="page2.html">
