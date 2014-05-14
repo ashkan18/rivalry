@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html ng-app="rivalryApp">
 
 <head>
     <link rel="stylesheet" href="css/main.css" />
@@ -9,11 +9,12 @@
 
 <!-- Header -->
 <nav>
-    <a ng-click="go('/page1', 'slideLeft')">Page 1</a>
-    <a ng-click="go('/page2', 'slideRight')">Page 2</a>
-    <a ng-click="go('/page3', 'slideDown')">Page 3</a>
-    <a ng-click="go('/page4')">Page 4</a> <!-- note: no transition specified -->
+    <a ng-click="go('/catalog', 'slideLeft')">Page 1</a>
+    <a ng-click="go('/ash', 'slideRight')">Page 2</a>
+    <a ng-click="go('/about', 'slideDown')">Page 3</a>
+    <a ng-click="go('/mozh, 'slideLeft')">Page 4</a> <!-- note: no transition specified -->
 </nav>
+
 
 <!-- App Content Container -->
 <div class="page-container">
@@ -24,27 +25,6 @@
 <script type="text/ng-template" id="page1.html">
     <div id="page1" class="pages">
         <h1>Page 1</h1>
-        <p>Here's a simple, scalable approach for page transitions in a single page app using the new(ish) class-based animation support for ng-view: a rootScope 'go' method.</p>
-                <pre>
-    $rootScope.go = function (path, pageAnimationClass) {
-
-        if (typeof(pageAnimationClass) === 'undefined') { // Use a default, your choice
-            $rootScope.pageAnimationClass = 'crossFade';
-        }
-        
-        else { // Use the specified animation
-            $rootScope.pageAnimationClass = pageAnimationClass;
-        }
-
-        if (path === 'back') { // Allow a 'back' keyword to go to previous page
-            $window.history.back();
-        }
-        
-        else { // Go to the specified path
-            $location.path(path);
-        }
-    };
-                </pre>
         <p>We add the 'pageAnimationClass' class to the view container with ng-class and set up any number of arbitrary page transitions in our css file.</p>
     </div>
 </script>

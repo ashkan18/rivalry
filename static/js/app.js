@@ -1,11 +1,11 @@
 // Declare the main module
-var myApp = angular.module('myApp', [
+var rivalryApp = angular.module('rivalryApp', [
     'ngRoute',
     'ngAnimate'
 ]);
 
 // Initialize the main module
-myApp.run(['$rootScope', '$location', '$window', function ($rootScope, $location, $window) {
+rivalryApp.run(['$rootScope', '$location', '$window', function ($rootScope, $location, $window) {
 
     'use strict';
 
@@ -35,21 +35,21 @@ myApp.run(['$rootScope', '$location', '$window', function ($rootScope, $location
 }]);
 
 // Configure the main module
-myApp.config(['$routeProvider', function ($routeProvider) {
+rivalryApp.config(['$routeProvider', function ($routeProvider) {
 
     'use strict';
 
     $routeProvider
-        .when('/page1', {
+        .when('/catalog', {
             templateUrl: 'page1.html'
         })
-        .when('/page2', {
+        .when('/ashkan', {
             templateUrl: 'page2.html'
         })
-        .when('/page3', {
+        .when('/about', {
             templateUrl: 'page3.html'
         })
-        .when('/page4', {
+        .when('/mozh', {
             templateUrl: 'page4.html'
         })
         .otherwise({
