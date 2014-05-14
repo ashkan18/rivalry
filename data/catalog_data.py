@@ -22,5 +22,15 @@ class CatalogData(BaseData):
         """
         sql = text("""SELECT id, issue_number, issue_tag_line, theme_id, created_date
                       FROM catalog
-                      WHERE issue_number = 1""")
-        return self.select_one(sql=sql)
+                      WHERE issue_number = :issue_number""")
+        return self.select_one(sql=sql, issue_number=issue_number)
+
+    def get_item_by_catalog_id_side(self, catalog_id, side):
+        sql = text("""SELECT i.name, a.name
+                      FROM catalog_items AS ci
+                      JOIN items AS id on (i.id = ci.item_id)
+                      JOIN items_artist AS ia on (ia.item_id = i.id)
+                      JOIN artists as a on (a.id = ia.artist_id)
+                      WHERE ci.catalog_id = :catalog_id
+                      AND ci.side = :side""")
+        return self.select_all(sql=sql, catalog_id=catalog_id, side=side)
