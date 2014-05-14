@@ -41,9 +41,10 @@ rivalryApp.config(['$routeProvider', function ($routeProvider) {
 
     $routeProvider
         .when('/catalog', {
-            templateUrl: 'page1.html'
+            templateUrl: 'partials/current-catalog.html',
+            controller: 'CatalogController'
         })
-        .when('/ashkan', {
+        .when('/ash', {
             templateUrl: 'page2.html'
         })
         .when('/about', {
