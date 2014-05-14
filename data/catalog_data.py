@@ -26,11 +26,16 @@ class CatalogData(BaseData):
         return self.select_one(sql=sql, issue_number=issue_number)
 
     def get_item_by_catalog_id_side(self, catalog_id, side):
-        sql = text("""SELECT i.name, a.name
-                      FROM catalog_items AS ci
-                      JOIN items AS id on (i.id = ci.item_id)
-                      JOIN items_artist AS ia on (ia.item_id = i.id)
-                      JOIN artists as a on (a.id = ia.artist_id)
+        """
+        This method returns items in the catalog for specific catalog id and on specific side
+        @param catalog_id: int number of catalog id
+        @param side: int coming from CatalogSide setting which side of catalog we want to get
+        """
+        sql = text("""SELECT i.name, a.firs_tname, a.last_name
+                      FROM catalog_item AS ci
+                      JOIN item AS i on (i.id = ci.item_id)
+                      JOIN item_artist AS ia on (ia.item_id = i.id)
+                      JOIN artist as a on (a.id = ia.artist_id)
                       WHERE ci.catalog_id = :catalog_id
-                      AND ci.side = :side""")
+                      AND ci.item_side = :side""")
         return self.select_all(sql=sql, catalog_id=catalog_id, side=side)

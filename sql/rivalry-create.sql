@@ -24,7 +24,7 @@ CREATE TABLE catalog
  theme_id INTEGER,
  created_date TIMESTAMP NOT NULL DEFAULT NOW());
 
-CREATE TABLE  catalog_items
+CREATE TABLE  catalog_item
 (id SERIAL PRIMARY KEY,
  catalog_id INTEGER NOT NULL,
  item_id INTEGER NOT NULL,
