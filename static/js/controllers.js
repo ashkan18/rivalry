@@ -10,8 +10,22 @@ var WEBSERVICES_ENDPOINT = {
     item_detail: "/catalog/"
 }
 
+
+rivalryApp.controller("ViewCtrl", function($scope) {
+    $scope.$on("$routeChangeSuccess", function(event, current, previous) {
+        var previousCtrl = previous && previous.$$route && previous.$$route.controller;
+        if (previousCtrl === "ItemDetailController") {
+            $scope.animationStyle = "slideLeft";
+        } else if (previousCtrl === "CatalogController") {
+            $scope.animationStyle = "slideRight";
+        }
+        $scope.$apply();
+    });
+});
+
+
 // define Catalog Controller which returns items in current catalog, and more detail about this month
-catalogController.controller('CatalogController', ['$scope', '$http',
+rivalryApp.controller('CatalogController', ['$scope', '$http',
     function($scope, $http) {
 
         $http({method: 'GET', url: WEBSERVICES_URL + WEBSERVICES_ENDPOINT.catalog})
@@ -23,8 +37,10 @@ catalogController.controller('CatalogController', ['$scope', '$http',
 
 }]);
 
+
+
 // define item detail controller where we get detail for a selected item
-catalogController.controller('ItemDetailController', [ '$scope', '$http', '$routeParams',
+rivalryApp.controller('ItemDetailController', [ '$scope', '$http', '$routeParams',
     function($scope, $http, $routeParams) {
 
         if ($routeParams.appPsk === undefined) {

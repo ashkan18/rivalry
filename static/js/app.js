@@ -4,9 +4,7 @@
 
 var rivalryApp = angular.module('rivalryApp', [
     'ngRoute',
-    'ngAnimate',
-    'catalogController'
-]);
+    'ngAnimate']);
 
 
 rivalryApp.config(['$routeProvider', function($routeProvider) {
@@ -23,16 +21,3 @@ rivalryApp.config(['$routeProvider', function($routeProvider) {
         })
 
     }]);
-
-
-rivalryApp.controller("ViewCtrl", function($scope) {
-    $scope.$on("$routeChangeSuccess", function(event, current, previous) {
-        var previousCtrl = previous && previous.$$route && previous.$$route.controller;
-        if (previousCtrl === "ItemDetailController") {
-            $scope.animationStyle = "slideLeft";
-        } else if (previousCtrl === "CatalogController") {
-            $scope.animationStyle = "slideRight";
-        }
-        $scope.$apply();
-    });
-});
