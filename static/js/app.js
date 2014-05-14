@@ -1,46 +1,58 @@
-var app = angular.module("app", [
-    "ngRoute",
-    "ngAnimate"
+// Declare the main module
+var myApp = angular.module('myApp', [
+    'ngRoute',
+    'ngAnimate'
 ]);
 
-app.config(function($routeProvider) {
-    $routeProvider.
-        when("/page1", {
-            templateUrl: "page1.html",
-            controller: "Page1Ctrl",
-            animate: "slideLeft"
-        }).
-        when("/page2", {
-            templateUrl: "page2.html",
-            controller: "Page2Ctrl",
-            animate: "slideRight"
-        }).
-        otherwise({
-            redirectTo: "/page1"
-        });
-});
+// Initialize the main module
+myApp.run(['$rootScope', '$location', '$window', function ($rootScope, $location, $window) {
 
-app.controller("ViewCtrl", function($scope) {
+    'use strict';
 
-});
+    /**
+     * Helper method for main page transitions. Useful for specifying a new page partial and an arbitrary transition.
+     * @param  {String} path               The root-relative url for the new route
+     * @param  {String} pageAnimationClass A classname defining the desired page transition
+     */
+    $rootScope.go = function (path, pageAnimationClass) {
 
-app.directive('animClass',function($route){
-    return {
-        link: function(scope, elm, attrs){
-            var enterClass = $route.current.animate;
-            elm.addClass(enterClass)
-            scope.$on('$destroy',function(){
-                elm.removeClass(enterClass)
-                elm.addClass($route.current.animate)
-            })
+        if (typeof(pageAnimationClass) === 'undefined') { // Use a default, your choice
+            $rootScope.pageAnimationClass = 'crossFade';
         }
-    }
-});
 
-app.controller("Page1Ctrl", function($scope) {
+        else { // Use the specified animation
+            $rootScope.pageAnimationClass = pageAnimationClass;
+        }
 
-});
+        if (path === 'back') { // Allow a 'back' keyword to go to previous page
+            $window.history.back();
+        }
 
-app.controller("Page2Ctrl", function($scope) {
+        else { // Go to the specified path
+            $location.path(path);
+        }
+    };
+}]);
 
-});
+// Configure the main module
+myApp.config(['$routeProvider', function ($routeProvider) {
+
+    'use strict';
+
+    $routeProvider
+        .when('/page1', {
+            templateUrl: 'page1.html'
+        })
+        .when('/page2', {
+            templateUrl: 'page2.html'
+        })
+        .when('/page3', {
+            templateUrl: 'page3.html'
+        })
+        .when('/page4', {
+            templateUrl: 'page4.html'
+        })
+        .otherwise({
+            templateUrl: 'page1.html'
+        });
+}]);
