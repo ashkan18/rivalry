@@ -40,7 +40,7 @@ myApp.config(['$routeProvider', function ($routeProvider) {
     'use strict';
 
     $routeProvider
-        .when('/page1', {
+        .when('/catalog', {
             templateUrl: 'catalog.html'
         })
         .when('/page2', {
@@ -53,6 +53,6 @@ myApp.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'page4.html'
         })
         .otherwise({
-            templateUrl: 'page1.html'
+            templateUrl: 'catalog.html'
         });
 }]);
