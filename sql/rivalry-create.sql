@@ -27,7 +27,7 @@ CREATE TABLE catalog
 CREATE TABLE  catalog_items
 (id SERIAL PRIMARY KEY,
  catalog_id INTEGER NOT NULL,
- item_id INTEGER_NOT_NULL,
+ item_id INTEGER NOT NULL,
  item_side INTEGER NOT NULL,
  created_date TIMESTAMP  NOT NULL DEFAULT NOW());
 
