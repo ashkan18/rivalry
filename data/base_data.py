@@ -49,9 +49,9 @@ class BaseData():
 
     def select_all(self, sql, **kwargs):
         result = _engine.execute(sql, **kwargs)
-
         if result.returns_rows:
             fetched_result = result.fetchall()
-            return fetched_result
+            print 'hello! {0}'.format(fetched_result)
+            return [dict(row) for row in fetched_result]
         else:
             return None
