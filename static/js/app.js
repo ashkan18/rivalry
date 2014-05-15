@@ -47,8 +47,8 @@ myApp.config(['$routeProvider', function ($routeProvider) {
         .when('/mozh', {
             templateUrl: 'partials/mozh.html'
         })
-        .when('/page3', {
-            templateUrl: 'page3.html'
+        .when('/about', {
+            templateUrl: 'partials/about.html'
         })
         .when('/page4', {
             templateUrl: 'page4.html'
