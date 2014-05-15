@@ -30,6 +30,40 @@ nav a {
     text-transform: uppercase;
 }
 
+#leftBtn {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    z-index: 2;
+    cursor: pointer;
+}
+
+#rightBtn {
+    position: fixed;
+    left: 98%;
+    top: 50%;
+    z-index: 2;
+    cursor: pointer;
+}
+
+#topBtn {
+    position: fixed;
+    left: 50%;
+    top: 0;
+    z-index: 2;
+    cursor: pointer;
+}
+
+#downBtn {
+    position: fixed;
+    left: 50%;
+    top: 90%;
+    z-index: 2;
+    cursor: pointer;
+}
+
+
+
 /* partial containers */
 .page-container {
     height: 100%;

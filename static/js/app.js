@@ -14,7 +14,7 @@ myApp.run(['$rootScope', '$location', '$window', function ($rootScope, $location
      * @param  {String} path               The root-relative url for the new route
      * @param  {String} pageAnimationClass A classname defining the desired page transition
      */
-    $rootScope.go = function (path, pageAnimationClass) {
+    $rootScope.goPath = function (path, pageAnimationClass) {
 
         if (typeof(pageAnimationClass) === 'undefined') { // Use a default, your choice
             $rootScope.pageAnimationClass = 'crossFade';
@@ -31,6 +31,21 @@ myApp.run(['$rootScope', '$location', '$window', function ($rootScope, $location
         else { // Go to the specified path
             $location.path(path);
         }
+    };
+    $rootScope.x = 1;
+    $rootScope.y = 1;
+    $rootScope.go = function (direction) {
+        switch (direction) {
+            case "right":
+                if ($rootScope.x === 0){
+                    // we are on left page go to home
+                    $rootScope.goPath('/catalog', 'slideLeft');
+                } else if ($rootScope.x === 1){
+                    // we are on catalog, go to mozh
+                    $rootScope.goPath('/ash', 'slideLeft')
+                }
+        }
+
     };
 }]);
 

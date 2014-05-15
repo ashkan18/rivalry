@@ -9,11 +9,16 @@
 
 <!-- Header -->
 <nav>
-    <a ng-click="go('/catalog', 'slideLeft')">Catalog</a>
-    <a ng-click="go('/mozh', 'slideRight')">Mozh</a>
-    <a ng-click="go('/about', 'slideDown')">About</a>
-    <a ng-click="go('/ash', 'slideLeft')">Ash</a> <!-- note: no transition specified -->
+    <a ng-click="goPath('/catalog', 'slideLeft')">Catalog</a>
+    <a ng-click="goPath('/mozh', 'slideRight')">Mozh</a>
+    <a ng-click="goPath('/about', 'slideDown')">About</a>
+    <a ng-click="goPath('/ash', 'slideLeft')">Ash</a> <!-- note: no transition specified -->
 </nav>
+
+<a ng-click="go('up')" id="topBtn"> ^ </a>
+<a ng-click="go('left')" id='leftBtn'> << </a>
+<a ng-click="go('right')" id='rightBtn'> >> </a>
+<a ng-click="go('down')" id='downBtn'> Down</a>
 
 <!-- App Content Container -->
 <div class="page-container">
