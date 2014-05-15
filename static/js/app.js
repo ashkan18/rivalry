@@ -40,39 +40,38 @@ myApp.run(['$rootScope', '$location', '$window', function ($rootScope, $location
                 if ($rootScope.x === 0){
                     // we are on left page go to home
                     $rootScope.goPath('/catalog', 'slideLeft');
-                    $rootScope.x++;
+                    $rootScope.x = 1;
                 } else if ($rootScope.x === 1){
                     // we are on catalog, go to mozh
                     $rootScope.goPath('/ash', 'slideLeft');
-                    $rootScope.x++;
+                    $rootScope.x = 2;
                 }
                 break;
             case 'left':
                 if ($rootScope.x === 1){
                    // we are on catalog page, left means go to mozh
                    $rootScope.goPath('/mozh', 'slideRight');
-                   $rootScope.x--;
-                } else if ($rootScope.x === 0) {
+                   $rootScope.x = 0;
+                } else if ($rootScope.x === 2) {
                     // we are on ash page, go to catalog
                     $rootScope.goPath('/catalog', 'slideRight');
-                    $rootScope.x--;
+                    $rootScope.x = 1;
                 }
                 break;
-            case 'top':
+            case 'up':
                 if ($rootScope.y === 0){
                     // we are on first row, go up to about
                     $rootScope.goPath('/about', 'slideUp');
-                    $rootScope.y++;
+                    $rootScope.y = 1;
                 }
                 break;
-            case 'top':
+            case 'down':
                 if ($rootScope.y === 1){
                     // we are on about, go down to catalog
                     $rootScope.goPath('/catalog', 'slideDown');
-                    $rootScope.y++;
+                    $rootScope.y = 0;
                 }
                 break;
-
 
         }
 
@@ -99,6 +98,6 @@ myApp.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'partials/ash.html'
         })
         .otherwise({
-            templateUrl: 'partials/catalog.html'
+            redirectTo: '/catalog'
         });
 }]);

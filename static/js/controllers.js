@@ -13,7 +13,6 @@ var WEBSERVICES_ENDPOINT = {
 // define Catalog Controller which returns items in current catalog, and more detail about this month
 myApp.controller('CatalogController', ['$scope', '$http',
     function($scope, $http) {
-
         $http({method: 'GET', url: WEBSERVICES_URL + WEBSERVICES_ENDPOINT.catalog})
             .success(function(data, satus, headers, config){
                 $scope.catalog_info = data
