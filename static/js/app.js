@@ -47,11 +47,11 @@ myApp.config(['$routeProvider', function ($routeProvider) {
         .when('/mozh', {
             templateUrl: 'partials/mozh.html'
         })
-        .when('/about', {
-            templateUrl: 'partials/about.html'
+        .when('/page3', {
+            templateUrl: 'page3.html'
         })
-        .when('/ash', {
-            templateUrl: 'partials/ash.html'
+        .when('/page4', {
+            templateUrl: 'page4.html'
         })
         .otherwise({
             templateUrl: 'partials/catalog.html'
