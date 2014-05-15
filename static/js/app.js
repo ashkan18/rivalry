@@ -40,23 +40,39 @@ myApp.run(['$rootScope', '$location', '$window', function ($rootScope, $location
                 if ($rootScope.x === 0){
                     // we are on left page go to home
                     $rootScope.goPath('/catalog', 'slideLeft');
-                    $rootScope.x = 1;
+                    $rootScope.x++;
                 } else if ($rootScope.x === 1){
                     // we are on catalog, go to mozh
                     $rootScope.goPath('/ash', 'slideLeft');
-                    $rootScope.x = 2;
+                    $rootScope.x++;
                 }
                 break;
             case 'left':
                 if ($rootScope.x === 1){
                    // we are on catalog page, left means go to mozh
                    $rootScope.goPath('/mozh', 'slideRight');
-                   $rootScope.x = 2;
+                   $rootScope.x--;
                 } else if ($rootScope.x === 0) {
                     // we are on ash page, go to catalog
                     $rootScope.goPath('/catalog', 'slideRight');
-                    $rootScope.x = 1;
+                    $rootScope.x--;
                 }
+                break;
+            case 'top':
+                if ($rootScope.y === 0){
+                    // we are on first row, go up to about
+                    $rootScope.goPath('/about', 'slideUp');
+                    $rootScope.y++;
+                }
+                break;
+            case 'top':
+                if ($rootScope.y === 1){
+                    // we are on about, go down to catalog
+                    $rootScope.goPath('/catalog', 'slideDown');
+                    $rootScope.y++;
+                }
+                break;
+
 
         }
 
