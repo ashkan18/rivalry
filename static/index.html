@@ -10,7 +10,7 @@
 <!-- Header -->
 <nav>
     <a ng-click="go('/catalog', 'slideLeft')">Catalog</a>
-    <a ng-click="go('/page2', 'slideRight')">Page 2</a>
+    <a ng-click="go('/mozh', 'slideRight')">Mozh</a>
     <a ng-click="go('/page3', 'slideDown')">Page 3</a>
     <a ng-click="go('/page4')">Page 4</a> <!-- note: no transition specified -->
 </nav>
@@ -19,15 +19,6 @@
 <div class="page-container">
     <div ng-view="" class="page-view" ng-class="pageAnimationClass"></div>
 </div>
-
-<script type="text/ng-template" id="page2.html">
-    <div id="page2" class="pages">
-        <h1>Page 2</h1>
-        <p>Use the method from any page in an ng-click or other event handler.</p>
-        <p><a ng-click="go('/page3', 'slideUp')">Slide up Page 3</a></p>
-        <code>&lt;a ng-click="go('/page3', 'slideUp')"&gt;Slide up Page 3&lt;/a&gt;</code>
-    </div>
-</script>
 
 <script type="text/ng-template" id="page3.html">
     <div id="page3" class="pages">
