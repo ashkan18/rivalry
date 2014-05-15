@@ -7,20 +7,20 @@ var catalogController = angular.module('catalogController', []);
 var WEBSERVICES_URL = 'http://rivalry-studio.herokuapp.com/';
 var WEBSERVICES_ENDPOINT = {
     catalog: "/catalog/",
-    item_detail: "/catalog/"
+    item_detail: "/item/"
 }
 
 // define Catalog Controller which returns items in current catalog, and more detail about this month
 myApp.controller('CatalogController', ['$scope', '$http',
     function($scope, $http) {
 
-        /*$http({method: 'GET', url: WEBSERVICES_URL + WEBSERVICES_ENDPOINT.catalog})
+        $http({method: 'GET', url: WEBSERVICES_URL + WEBSERVICES_ENDPOINT.catalog})
             .success(function(data, satus, headers, config){
-                $scope.catalog_items = data
+                $scope.catalog_info = data
             }).error(function(data, status, headers, config) {
                     console.log("There was an error in getting current catalog");
             });
-         */
+
 }]);
 
 
