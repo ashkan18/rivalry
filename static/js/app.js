@@ -9,6 +9,28 @@ myApp.run(['$rootScope', '$location', '$window', function ($rootScope, $location
 
     'use strict';
 
+    $rootScope.handleKeyPress = function(eve) {
+
+        switch (eve.which) {
+            case 37:
+                // left
+                $rootScope.go('left');
+                break;
+            case 39:
+                // right
+                $rootScope.go('right');
+                break;
+            case 38:
+                // up
+                $rootScope.go('up');
+                break;
+            case 40:
+                // down
+                $rootScope.go('down');
+                break;
+
+        }
+    }
     /**
      * Helper method for main page transitions. Useful for specifying a new page partial and an arbitrary transition.
      * @param  {String} path               The root-relative url for the new route

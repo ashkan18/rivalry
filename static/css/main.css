@@ -29,39 +29,82 @@ nav a {
     padding: 0 1rem;
     text-transform: uppercase;
 }
-
-#leftBtn {
+/* --------------- Controls section   ---------------- */
+.controls {
+    display: none;
     position: fixed;
-    left: 0;
-    top: 50%;
-    z-index: 2;
+    width: 110px;
+    height: 110px;
+    z-index: 30;
+    right: 10px;
+    bottom: 10px;
+}
+
+.controls div {
+    position: absolute;
+    opacity: 0.05;
+    width: 0;
+    height: 0;
+    border: 12px solid transparent;
+
+    -moz-transform: scale(.9999);
+
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.controls div.enabled {
+    opacity: 0.7;
     cursor: pointer;
 }
 
-#rightBtn {
-    position: fixed;
-    left: 98%;
-    top: 50%;
-    z-index: 2;
-    cursor: pointer;
+.controls div.enabled:active {
+    margin-top: 1px;
 }
 
-#topBtn {
-    position: fixed;
-    left: 50%;
-    top: 0;
-    z-index: 2;
-    cursor: pointer;
+.controls div.navigate-left {
+    top: 42px;
+
+    border-right-width: 22px;
+    border-right-color: #000;
+}
+.controls div.navigate-left.fragmented {
+    opacity: 0.3;
 }
 
-#downBtn {
-    position: fixed;
-    left: 50%;
-    top: 90%;
-    z-index: 2;
-    cursor: pointer;
+.controls div.navigate-right {
+    left: 74px;
+    top: 42px;
+
+    border-left-width: 22px;
+    border-left-color: #000;
+}
+.controls div.navigate-right.fragmented {
+    opacity: 0.3;
 }
 
+.controls div.navigate-up {
+    left: 42px;
+
+    border-bottom-width: 22px;
+    border-bottom-color: #000;
+}
+.controls div.navigate-up.fragmented {
+    opacity: 0.3;
+}
+
+.controls div.navigate-down {
+    left: 42px;
+    top: 74px;
+
+    border-top-width: 22px;
+    border-top-color: #000;
+}
+.controls div.navigate-down.fragmented {
+    opacity: 0.3;
+}
+/* ------------ End Controls Section --------- */
 
 
 /* partial containers */
@@ -70,7 +113,6 @@ nav a {
     width: 100%;
     position: relative;
     transform: translate3d(0,0,0);
-    margin-top: 3rem;
 }
 
 .page-view {

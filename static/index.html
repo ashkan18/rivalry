@@ -2,24 +2,19 @@
 <html ng-app="myApp">
 
 <head>
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/main.css"/>
 </head>
 
-<body>
+<body ng-keypress="handleKeyPress($event)">
 
 <!-- Header -->
-<nav>
-    <a ng-click="goPath('/catalog', 'slideLeft')">Catalog</a>
-    <a ng-click="goPath('/mozh', 'slideRight')">Mozh</a>
-    <a ng-click="goPath('/about', 'slideDown')">About</a>
-    <a ng-click="goPath('/ash', 'slideLeft')">Ash</a> <!-- note: no transition specified -->
-</nav>
 
-<a ng-click="go('up')" id="topBtn"> ^ </a>
-<a ng-click="go('left')" id='leftBtn'> << </a>
-<a ng-click="go('right')" id='rightBtn'> >> </a>
-<a ng-click="go('down')" id='downBtn'> Down</a>
-
+<aside class="controls" style="display: block;">
+    <div ng-click="go('left')" class="navigate-left enabled"></div>
+    <div ng-click="go('right')" class="navigate-right enabled"></div>
+    <div ng-click="go('up')" class="navigate-up enabled"></div>
+    <div ng-click="go('down')" class="navigate-down"></div>
+</aside>
 <!-- App Content Container -->
 <div class="page-container">
     <div ng-view="" class="page-view" ng-class="pageAnimationClass"></div>
