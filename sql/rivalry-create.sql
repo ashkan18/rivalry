@@ -5,6 +5,12 @@ CREATE TABLE item
    name VARCHAR(256) NOT NULL,
    created_date TIMESTAMP NOT NULL DEFAULT NOW());
 
+CREATE TABLE item_pictures
+  (id SERIAL PRIMARY KEY,
+   path VARCHAR(512),
+   description VARCHAR(512),
+   created_date TIMESTAMP NOT NULL DEFAULT NOW());
+
 CREATE TABLE artist
 (id SERIAL PRIMARY KEY,
  first_name VARCHAR(256) NOT NULL,
